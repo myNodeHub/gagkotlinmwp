@@ -8,7 +8,7 @@ public class PresenterImpl @Inject constructor() : MainContract.Presenter{
 
 
     override fun subscribe() {
-        TODO("not implemented")
+        println("!!---!!")
     }
 
     override fun unsubscribe() {

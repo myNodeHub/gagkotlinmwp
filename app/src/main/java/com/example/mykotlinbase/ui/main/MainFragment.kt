@@ -12,9 +12,10 @@ import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-class MainFragment @Inject constructor() : Fragment(){
+class MainFragment @Inject constructor() : Fragment() {
 
-    @Inject lateinit var presenterImpl : PresenterImpl
+    @Inject
+    lateinit var presenterImpl: PresenterImpl
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
@@ -28,5 +29,18 @@ class MainFragment @Inject constructor() : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.main_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenterImpl.subscribe()
+    }
+
+    companion object {
+        private const val KEY_SAMPLE: String = "sample"
+
+        @JvmStatic
+        fun newInstance() = MainFragment()
+
     }
 }
