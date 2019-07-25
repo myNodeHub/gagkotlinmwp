@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
-    @Inject lateinit var presenterImpl : PresenterImpl
+//    @Inject lateinit var presenterImpl : PresenterImpl
 
     @Inject lateinit var mainFragment: MainFragment
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println("!!!!!!!!!!!!!!!!! $presenterImpl")
+//        println("!!!!!!!!!!!!!!!!! $presenterImpl")
 
         val manager : FragmentManager = getSupportFragmentManager()
         val transaction : FragmentTransaction = manager.beginTransaction()

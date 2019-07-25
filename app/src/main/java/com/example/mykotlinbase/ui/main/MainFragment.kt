@@ -6,13 +6,17 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import com.example.mykotlinbase.R
+import com.example.mykotlinbase.pojoPlusRetrofit.pojo.ProduceClass
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
+class MainFragment @Inject constructor() : Fragment(), MainContract.View {
+    override fun getSimpleStringVar(simpleStringVar: String) {
 
-class MainFragment @Inject constructor() : Fragment() {
+    }
 
     @Inject
     lateinit var presenterImpl: PresenterImpl
@@ -20,7 +24,6 @@ class MainFragment @Inject constructor() : Fragment() {
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
-
     }
 
     override
