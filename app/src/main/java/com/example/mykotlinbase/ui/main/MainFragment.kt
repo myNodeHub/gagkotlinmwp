@@ -9,20 +9,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.example.mykotlinbase.R
+import com.example.mykotlinbase.base.BaseFragment
 import com.example.mykotlinbase.pojoPlusRetrofit.pojo.ProduceClass
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
-class MainFragment @Inject constructor() : Fragment(), MainContract.View {
-    override fun getSimpleStringVar(simpleStringVar: String) {
+class MainFragment constructor() : BaseFragment(), MainContract.View {
 
+    override fun getSimpleStringVar(simpleStringVar: String) {
+        println("????$simpleStringVar")
     }
 
     @Inject
     lateinit var presenterImpl: PresenterImpl
 
     override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 

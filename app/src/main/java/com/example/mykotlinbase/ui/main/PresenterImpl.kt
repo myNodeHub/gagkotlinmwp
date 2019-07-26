@@ -17,6 +17,7 @@ public class PresenterImpl constructor(var view: MainContract.View, var produceC
     override fun subscribe() {
         println("!!---!!")
         println(produceClass.name)
+        view.getSimpleStringVar(produceClass.name)
     }
 
     override fun unsubscribe() {

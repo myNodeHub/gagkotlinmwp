@@ -1,6 +1,7 @@
 package com.example.mykotlinbase.di.scopes
 
-import com.example.mykotlinbase.MyApplication
+import android.content.Context
+import com.example.mykotlinbase.base.App
 import com.example.mykotlinbase.di.module.ActivityModule
 import com.example.mykotlinbase.di.module.FragmentModule
 import com.example.mykotlinbase.di.module.PresenterModule
@@ -18,12 +19,13 @@ import javax.inject.Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, ActivityModule::class, FragmentModule::class, ProduceClassModule::class,
 PresenterModule::class])
 interface AppComponent : AndroidInjector<DaggerApplication>{
-
-    override fun inject(instance : DaggerApplication )
     @Component.Builder
     interface Builder {
         @BindsInstance
-         fun application(application : MyApplication ) : AppComponent.Builder
-         fun build() : AppComponent
+        fun context(context: Context): Builder
+
+        fun build(): AppComponent
     }
-}
+
+    fun inject(app: App)
+    }
